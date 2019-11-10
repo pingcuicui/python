@@ -1,0 +1,37 @@
+table=' '.maketrans(‘abcdef123’,'uvwxyz@#$')
+s="python is a greate programming language.I like it!"
+s.translate(table)
+
+
+
+
+
+
+import string
+def kaisa(s,k):
+	lower=string.ascii_lowercase
+	upper=string.ascii_uppercase
+	before=string.ascii_letters
+	after=lower[k:]+lower[:k]+upper[k:]+upper[:k]
+	table=' '.maketrans(before,after)
+	return s.translate(table)
+s="python is a great programming language.I like it!"
+kaisa(s,3)
+s='If the implementation is easy to explain,it may be a good idea.'
+kaisa(s,3)
+
+
+
+
+def crypt(source,key):
+	from itertools import cycle
+	result=''
+	temp=cycle(key)
+	for ch in source:
+		result=result+chr(ord(ch) ^ ord(next(temp)))
+	return result
+source='shandong institute of business and technology'
+key='dong fuguo'
+print('before encrypted：‘+encrypted)
+decrypted=crypt(encrypted,key)
+print('After Decrypted:'+decrypted)
